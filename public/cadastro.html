@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenHouse - Cadastro</title>
+    <link rel="stylesheet" href="css/GreenHouse.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="shortcut icon" href="assets/icon/logo.png">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="container">
+            <img class="imagemLogo" src="assets/icon/logo.png">
+            <h1><a href="index.html">Green House</a></h1>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="sobreproduto.html">Nossos Serviços</a></li>
+                <li><a href="sobrenos.html">Sobre nós</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a>|</a></li>
+                <li><a href="login.html">Login</a></li>
+                <div class="cadastroheader"><li><a href="cadastro.html">Cadastre-se</a></li></div>
+            </ul>
+        </div>
+    </div>
+    <!-- login  -->
+
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça seu cadastro</h1>
+            <img src="assets/imgs/banco_de_dados.svg" class="left-login-image" alt="banco animação">
+        </div>
+        <div class="right-login">
+            <div class="card">
+                <div class="tamanho">
+                    <h3>Nome completo: </h3>
+                    <input id="nome_input" placeholder="Insira seu nome completo">
+                </div>
+                <div class="tamanho">
+                    <h3>Data de nascimento: </h3>
+                    <input id="data_input" class="fonteinput" placeholder="Insira sua data de nascimento" type="date">
+                </div>
+                <div class="tamanho">
+                    <h3>Email:</h3>
+                    <input id="email_input" placeholder="Insira seu email">
+                </div>
+                <div class="tamanho">
+                    <h3>Senha:</h3>
+                    
+                        <input id="senha_input" type="password" placeholder="Insira sua senha">
+
+                        
+                <br><br>
+                <button onclick="cadastrar()" class="btn">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    
+</script>
+
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var dataVar = data_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (nomeVar == "" || dataVar == "" || emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+
+            finalizarAguardar();
+            return false;
+        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            finalizarAguardar();
+            return false;
+        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // if (senhaVar != confirmacaoSenhaVar) {
+        //     cardErro.style.display = "block"
+        //     mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+        //     finalizarAguardar();
+        //     return false;
+        // }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                dataServer: dataVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+</script>
