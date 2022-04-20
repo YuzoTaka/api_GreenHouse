@@ -39,7 +39,7 @@ CREATE TABLE sensor(
     FOREIGN KEY(fkPF) REFERENCES usuarioPF(idPF)
 );
 
-DESC usuarioPF;
+DESC usuario;
 DESC usuarioPJ;
 DESC sensor;
 DESC dados;
