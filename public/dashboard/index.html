@@ -7,29 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avisos!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styledash.css">
     <link rel="shortcut icon" href="../assets/icon/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <script src="https://kit.fontawesome.com/4ea0191552.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <!-- MENU LADO ESQUERDO -->
+<body onload="validarSessao(), atualizarFeed()">
     <div class="container">
-        <aside>
-            <div class="top">
-                <div>
-                    <h2><span class="danger">Green House</span></h2>
-                </div>
-            </div>
 
-            <div class="sidebar">
-                <a href=""><span class="material-icons-sharp">grid_view</span></a>
-                <a href=""><span class="material-icons-sharp">add</span></a>
-                <a href=""><span class="material-icons-sharp">group_add</span></a>
-                <a href="" class="btn-logout" onclick="limparSessao()"><span
-                        class="material-icons-sharp">logout</span></a>
-        </aside>
+        <!-- COMEÇO ESQUERDA  -->
+
+        <aside>
+            <div class="right">
+                <div class="profile">
+                    <div class="info">
+                        <div class="imagem-profile">
+                            <i class="fa-solid fa-circle-user fa-6x"></i>
+                        </div>
+                        <h3>Olá,
+                            <br>
+                            <span id="b_usuario">usuário</span>!
+                            <br>
+                            ID = <span id="b_id">teste</span>
+                        </h3>
+                        
+                        <!-- <small class="text-muted">Admin</small> -->
+                    </div>
+                </div><br>
+            </div>
+                <div class="sidebar">
+                    <a>
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                        <a href="index.html">
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Adicionar mais estufas</h3>
+                        </a>
+                        <a href="dependente.html">
+                            <span class="material-icons-sharp">group_add</span>
+                            <h3>Adicionar dependente</h3>
+                        </a>
+                            <a class="btn-logout" onclick="limparSessao()">
+                                <span class="material-icons-sharp">logout</span>
+                                <h3>Logout</h3>
+                            </a>
+    
+            </aside>
+            <!-- FIM ESQUERDA  -->
         <main>
-            <H1>Você está com problemas!</h1>
+            <H1>Estufas Ativas</h1>
             <div class="aviso-cima">
                 <a href="dashboard.html">
                     <div class="estufa1"><span>Estufa 1</span><img src="../assets/imgs/estufa.png" alt="">
