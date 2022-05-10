@@ -26,13 +26,12 @@
                             <i class="fa-solid fa-circle-user fa-6x"></i>
                         </div>
                         <h3>Olá,
-                            <br>
                             <span id="b_usuario">usuário</span>!
                             <br>
                             ID = <span id="b_id">teste</span>
                         </h3>
                         
-                        <!-- <small class="text-muted">Admin</small> -->
+                        <small class="text-muted" id="id_cargo">cargo</small>
                     </div>
                 </div><br>
             </div>
@@ -40,11 +39,11 @@
                 <a>
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
-                    <a href="#">
+                    <a href="KPI.html">
                         <span class="material-icons-sharp">add</span>
                         <h3>Adicionar mais estufas</h3>
                     </a>
-                    <a href="dependente.html">
+                    <a onclick="dependente()">
                         <span class="material-icons-sharp">group_add</span>
                         <h3>Adicionar dependente</h3>
                     </a>
@@ -197,6 +196,22 @@
 </body>
 
 </html>
+
+<script>
+    var fk = sessionStorage.FK_USUARIO;
+    function dependente(){
+        if(fk != 'null'){
+            alert(`Você não tem permissão para adicionar dependente`)  
+        }else{
+            window.location = "dependente.html"
+        }
+    }
+    if(fk != 'null'){
+        id_cargo.innerHTML = `Dependente`      
+    }else{
+        id_cargo.innerHTML = `Admin`
+    }
+</script>
 
 <script>
     /*Gráfico de Barras*/

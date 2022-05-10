@@ -17,9 +17,10 @@ function validarSessao() {
         b_id.innerHTML = id;
 
         // finalizarAguardar();
-    } else {
-        window.location = "../login.html";
-    }
+    } 
+    // else {
+    //     window.location = "../login.html";
+    // }
 }
 
 function limparSessao() {
@@ -35,25 +36,25 @@ function aguardar() {
     divAguardar.style.display = "flex";
 }
 
-function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+// function finalizarAguardar(texto) {
+//     var divAguardar = document.getElementById("div_aguardar");
+//     divAguardar.style.display = "none";
 
-    var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
-        divErrosLogin.innerHTML = texto;
-    }
-}
+//     var divErrosLogin = document.getElementById("div_erros_login");
+//     if (texto) {
+//         divErrosLogin.innerHTML = texto;
+//     }
+// }
 
 
 // modal
 function mostrarModal() {
-    var divModal = document.getElementById("div_modal");
+    var divModal = document.getElementById("div_dados");
     divModal.style.display = "flex";
 }
 
 function fecharModal() {
-    var divModal = document.getElementById("div_modal");
+    var divModal = document.getElementById("div_dados");
     divModal.style.display = "none";
 }
 
