@@ -7,11 +7,15 @@ body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
 }
+.header{
+  border-bottom: solid 2px black;
+}
 
 .container {
     color: #5ecd32;
     display: flex;
     justify-content: space-between;
+
 }
 
 .container h1{
@@ -59,7 +63,6 @@ border-style: solid;
 border-bottom: none;
 border-left: none;
 border-right: none;
-
 }
 
 .cadastroheader a {

@@ -3,12 +3,12 @@
 .main-login{
     width: 100vw;
     height: 100vh;
-    background-color: #f2f2f285;
+    background-image: url(../assets/imgs/Bola_cinza_direita.png);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
     padding-bottom: 40px;
+    background-color: #f2f2f285;
 }
 .left-login{
     width: 50vw;
@@ -39,9 +39,6 @@
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 10px 50px #00000056;
 }
 .card h1{
     color: #2b2b2b;
@@ -86,6 +83,11 @@
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #15ff00;
     transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: #5ecd32;
+    color: #2b2b2b;   
 }
 
 .tamanho{

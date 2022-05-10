@@ -33,12 +33,13 @@
 
     <div class="main-cadastro">
         <div class="left-cadastro">
-            <h1>Faça seu cadastro</h1>
-            <img src="assets/imgs/banco_de_dados.svg" class="left-login-image" alt="banco animação">
+            <img src="assets/imgs/cadastro-animate.svg" class="left-login-image" alt="banco animação">
         </div>
         <div class="right-cadastro">
+            
             <div class="card">
                 <div class="tamanho">
+                    <h1>Faça seu cadastro</h1>
                     <h3>Nome completo/Razão social: </h3>
                     <input id="nome_input" placeholder="Insira seu nome completo">
                 </div>
@@ -117,8 +118,8 @@ function mostrar() {
         var senhaVar = senha_input.value;
 
         if (nomeVar == "" || dataVar == ""||tipoVar == ""  || cpfVar == "" || cepVar== "" || numVar == "" || emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            // cardErro.style.display = "block"
+            alert("Preencha todos os campos para prosseguir!");
 
             finalizarAguardar();
             return false;
@@ -128,8 +129,8 @@ function mostrar() {
         // }
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            // cardErro.style.display = "block"
+            alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
         }
@@ -170,9 +171,9 @@ function mostrar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                window.location = "login.html";
+                // cardErro.style.display = "block"
+                alert("Cadastro realizado com sucesso!");
+                window.location = "../login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {

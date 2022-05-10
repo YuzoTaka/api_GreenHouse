@@ -134,29 +134,20 @@
         var reduz = funcio / 2;
         reduz = Math.ceil(reduz);
         reset()
-        if (funcio == ``) {
-            div_resposta.innerHTML = `Digite a quantidade de funcionários.`
-            ipt_funcionario.placeholder = `Campo obrigatório.`
-            ipt_funcionario.style = `border: 2px solid red;`
-            ipt_funcionario.classList.add("placeholderred")
-        }
-        if (anual == ``) {
-            div_resposta.innerHTML = `Digite o faturamento anual.`
+        if (funcio ==`` || anual == `` || larg == `` || comp == ``) {
+            div_resposta.innerHTML = `<b>Preencha todos os campos.</b>`
             ipt_faturamento.placeholder = `Campo obrigatório.`
             ipt_faturamento.style = `border: 2px solid red;`
             ipt_faturamento.classList.add("placeholderred")
-        }
-        if (larg == ``) {
-            div_resposta.innerHTML = `Digite o valor da largura.`
             ipt_largura.placeholder = `Campo obrigatório.`
             ipt_largura.style = `border: 2px solid red;`
             ipt_largura.classList.add("placeholderred")
-        }
-        if (comp == ``) {
-            div_resposta.innerHTML += `<br>Digite o valor do comprimento.`
             ipt_comprimento.placeholder = `Campo obrigatório.`
             ipt_comprimento.style = `border: 2px solid red;`
             ipt_comprimento.classList.add("placeholderred")
+            ipt_funcionario.placeholder = `Campo obrigatório.`
+            ipt_funcionario.style = `border: 2px solid red;`
+            ipt_funcionario.classList.add("placeholderred")
         }
         else if (m2 <= 125 && m2 > 0) {
             containersimulador1.style.display = 'block'; 

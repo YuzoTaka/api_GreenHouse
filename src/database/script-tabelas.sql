@@ -5,6 +5,7 @@ USE greenhouse;
 CREATE TABLE usuario(
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(40),   
+    fkDependente INT,
     dtNasc DATE,  
     tipo CHAR(2),
 	CONSTRAINT tipo CHECK (tipo in('PF', 'PJ')),
@@ -12,7 +13,8 @@ CREATE TABLE usuario(
     CEP CHAR(9),
     numero VARCHAR(5),    
     email VARCHAR(60),
-    senha VARCHAR(45)
+    senha VARCHAR(45),
+    FOREIGN KEY(fkDependente) REFERENCES usuario(idUsuario)
 );
 
 CREATE TABLE estufa(
@@ -36,9 +38,9 @@ CREATE TABLE dados(
 	idDados INT AUTO_INCREMENT,
     fkSensor INT,
     PRIMARY KEY(idDados, fkSensor),
-    temperatura VARCHAR(4),
+    temperatura VARCHAR(20),
     luminosidade VARCHAR(20),
-    umidade VARCHAR(2),
+    umidade VARCHAR(20),
     dataHora DATETIME
 );
 
